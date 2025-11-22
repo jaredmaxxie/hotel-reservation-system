@@ -21,7 +21,82 @@ public class Main {
     MAIN PROCESSES
      */
     private static void roomAvailability() {
+        Scanner kbd = new Scanner(System.in);
+            System.out.print("Input Room Type to check: (1. Standard, 2. Deluxe, 3. Suite): ");
+            int type = kbd.nextInt();
 
+            String roomTypeName = "";
+            int price = 0;
+            int totalRooms = 0;
+            int availableRooms = 0;
+
+            switch (type) {
+                case 1 -> { 
+                    roomTypeName = "Standard";
+                    price = 2500;
+                    totalRooms = standard.length;
+
+                    for (int i = 0; i < standard.length; i++) {
+                        boolean isAvailable = true;
+                        for (int j = 0; j < dates.length; j++) {
+                            if (standard[i][j] != null) {
+                                isAvailable = false;
+                                break;
+                            }
+                        }
+                        if (isAvailable) availableRooms++;
+                    }
+                    StandardTable();
+                }
+
+                case 2 -> {
+                    roomTypeName = "Deluxe";
+                    price = 4000;
+                    totalRooms = deluxe.length;
+
+                    for (int i = 0; i < deluxe.length; i++) {
+                        boolean isAvailable = true;
+                        for (int j = 0; j < dates.length; j++) {
+                            if (deluxe[i][j] != null) {
+                                isAvailable = false;
+                                break;
+                            }
+                        }
+                        if (isAvailable) availableRooms++;
+                    }
+                    DeluxeTable();
+                }
+
+                case 3 -> { 
+                    roomTypeName = "Suite";
+                    price = 6000;
+                    totalRooms = suite.length;
+
+                    for (int i = 0; i < suite.length; i++) {
+                        boolean isAvailable = true;
+                        for (int j = 0; j < dates.length; j++) {
+                            if (suite[i][j] != null) {
+                                isAvailable = false;
+                                break;
+                            }
+                        }
+                        if (isAvailable) availableRooms++;
+                    }
+                    SuiteTable();
+                }
+
+                default -> {
+                    System.out.println("Invalid room type!");
+                    return;
+                }
+            }
+
+            System.out.println("\nRoom Availability Status");
+            System.out.println("Room Type: " + roomTypeName);
+            System.out.println("Total Rooms: " + totalRooms);
+            System.out.println("Available Rooms: " + availableRooms);
+            System.out.println("Price per Night: ₱" + String.format("%,d", price));
+        }
     }
 
     private static boolean makeReservation() {
