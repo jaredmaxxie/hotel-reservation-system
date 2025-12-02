@@ -17,7 +17,22 @@ Algorithm:
 1. Main Menu
 
 2. Check Room Availability
-
+2.1 Display all room types (Standard, Deluxe, Suite) and prompt user to select one.
+    • If the user selects the option 4 → go back to Main Menu.
+2.2 Set the selected Room Type based on the user’s choice.
+2.3 Retrieve the total number of rooms and the room status array for the chosen Room Type.
+2.4 Count how many rooms are currently marked as:
+        • "Available"
+        • "Booked"
+        • (Ignore rooms marked as "Occupied" for availability purposes)
+2.5 Display the Room Availability Summary:
+        • Room Type
+        • Total number of rooms for that type
+        • Number of Available rooms
+        • Number of Booked rooms
+        • Price per night
+        • Table
+2.6 Return to the Main Menu.
 3. Make New Reservation
 
 4. Check-In (Walk-In)
